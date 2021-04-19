@@ -16,12 +16,11 @@
 							</div>
 							<div class="row float-right">
 								<div class="col-md-12">
-									<%= form_for :cart, url: carts_path, method: :put do |f| %>
+									<%= form_for :cart, url: carts_path, method: :put, remote: true do |f| %> <!--local: false para form_with y remote: true para form_for!-->
 									<%= f.hidden_field :product_id, value: product.id  %>
-									<%= f.hidden_field :quantity, value: 1 %>
-									<%= f.submit "Add to cart" %>
+									<%= f.number_field :quantity, value: 1, id: nil, class: 'cart_quantity_number' %>
+									<%= f.submit "Add to cart", class: 'btn btn-primary btn-sm' %>
 									<% end %>
-									<button class="btn btn-primary btn-sm">Add to cart</button>
 								</div>
 							</div>
 						</div>

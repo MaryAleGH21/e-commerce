@@ -1,0 +1,5 @@
+var badge = document.querySelector('.navbar .badge.badge-danger')
+var total = document.querySelector('.navbar .total')
+
+badge.innerText = <%= current_order.order_items.sum(&:quantity) %>
+total.innerText = `$<%= current_order-total  %>`

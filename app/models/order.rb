@@ -11,6 +11,9 @@ class Order < ApplicationRecord
     product = Product.find(product_id)
     if product.present? && product.stock > 0 && product.stock >= quantity
       order_items.create(product: product, quantity: quantity, price: product.price)
+      self.total += product.price * quantity
+      self.save #Self hace refencia a una estancia de la tabla order
+    end
   end
 
   def generate_number
