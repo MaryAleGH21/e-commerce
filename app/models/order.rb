@@ -3,11 +3,11 @@ class Order < ApplicationRecord
   before_create :generate_number
 
   has_many :order_items 
-  has_many :products, through: :order_items 
+  has_many :products, through: :order_items #Relación tabla intermedia
 
   validates :number, uniqueness: true 
 
-  def add_product(product_id, quantity)
+  def add_product(product_id, quantity) #Toma orden y agrega el producto
     product = Product.find(product_id)
     if product.present? && product.stock > 0 && product.stock >= quantity
       order_items.create(product: product, quantity: quantity, price: product.price)
