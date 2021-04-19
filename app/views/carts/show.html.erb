@@ -22,6 +22,7 @@
                     </div>
                     <div class="col-xs-4 col-md-4"><%= item.quantity %></div>
                     <div class="col-xs-2 col-md-2"></div>
+                    <%= link_to 'Delete', @orders, method: :delete, remote: true %>
                 </div>
             </div>
             <hr>

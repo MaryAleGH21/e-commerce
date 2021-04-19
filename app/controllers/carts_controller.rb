@@ -16,4 +16,8 @@ class CartsController < ApplicationController
   def show
     @order = current_order
   end
+
+  def destroy
+  end
+
 end
